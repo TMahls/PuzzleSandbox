@@ -65,7 +65,7 @@ O-----2-----O
 
 ### How many possible edge sets?
 
-Well, for a set of N edges there are 12 choose N (~12~C~N~) possible combos. This gives us:
+Well, for a set of N edges there are 12 choose N (12_C_N) possible combos. This gives us:
 
 | N | # of sets |
 |--:|----------:|
