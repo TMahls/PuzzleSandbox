@@ -8,3 +8,14 @@ STATUS=$?
 if [ $STATUS -eq 0 ]; then
 	./findCubes.out
 fi
+
+# Set up python venv
+
+# Run python plotting script
+python3 -m venv .venv
+
+source .venv/bin/activate
+
+pip install matplotlib numpy PyQt5
+
+python3 graphCubes.py

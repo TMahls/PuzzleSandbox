@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -103,6 +104,24 @@ int main() {
 			timerUnitScaled << resetColor << std::endl;
 	else
 		std::cout << "Time taken: " << timerScaled << " " << timerUnitScaled << std::endl;
+
+	// Write output to file
+	std::ofstream outputFile("incompeteCubes.csv");
+	if (!outputFile.is_open()) {
+		std::cerr << "Error: Could not open file 'incompleteCubes.csv'" << std::endl;
+		return 1;
+	}
+
+	for (std::vector<char> i : answerSet) {
+		for (unsigned int j = 0; j < (i.size() - 1); j++)
+			outputFile << (short)i[j] << ",";
+		outputFile << (short)i[i.size()-1] << std::endl;
+	}
+
+	outputFile.close();
+
+	std::cout << "Data written to 'incompleteCubes.csv'" << std::endl;
+	return 0;
 }
 
 std::vector<std::vector<char>> generateNEdgeSets(unsigned short n) {
@@ -193,13 +212,10 @@ bool is3D(std::vector<char> n) {
 	if (n.size() > 4)
 		return true;
 
-	std::vector<std::vector<char>> allFaces;
-	allFaces.push_back({1,2,3,4});
-	allFaces.push_back({1,5,8,9});
-	allFaces.push_back({2,5,6,10});
-	allFaces.push_back({3,6,7,11});
-	allFaces.push_back({4,7,8,12});
-	allFaces.push_back({9,10,11,12});
+	std::vector<std::vector<char>> allFaces = {
+		{1,2,3,4},{1,5,8,9},{2,5,6,10},
+		{3,6,7,11},{4,7,8,12},{9,10,11,12},
+	};
 	std::vector<char> faceSet;
 	for (int face = 0; face < 6; face++) {
 		faceSet = allFaces[face];
