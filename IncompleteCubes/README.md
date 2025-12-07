@@ -33,12 +33,12 @@ not be too large-- brute force is a reasonable way to approach this.
 
 A cube has 8 vertexes, and 12 edges. We should express the incomplete cubes in terms of edges, because if
 we do vertexes there are possible ways we can miss. For example consider the following cube:
-
+```
   O---X
 O---X
 | O-|-X
 X---X
-
+```
 Let's say the 'X' vertexes are in our set. There's multiple incomplete cubes we can get from this. We can 
 fully connect all the vertexes, or we can remove one of the edges between the 4 vertexes on the right face. 
 
@@ -51,7 +51,7 @@ shape.
 ### Edge numbering
 
 Let's number the edges like so (this is purely arbitrary):
-
+```
    O----12-----O
   9|         11|
  / 8         / 7
@@ -61,6 +61,7 @@ O----10-----O  |
 | 1         | 3
 |/          |/
 O-----2-----O 
+```
 
 ### How many possible edge sets?
 
@@ -106,12 +107,14 @@ From Step (3) one can see that this is a recursive process.
 
 This one's pretty straightforward. From our diagram above, our 6 faces are comprised of these edge sets:
 
+```
 [1, 2, 3, 4]
 [1, 5, 8, 9]
 [2, 5, 6, 10]
 [3, 6, 7, 11]
 [4, 7, 8, 12]
 [9, 10, 11, 12]
+```
 
 For our edge set to be 3D it has to span multiple faces, meaning it can't be a subset of any of the sets above.
 
