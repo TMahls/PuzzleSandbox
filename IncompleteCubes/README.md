@@ -31,7 +31,7 @@ not be too large-- brute force is a reasonable way to approach this.
 
 ### How to encode the cubes
 
-A cube has 8 vertexes, and 12 edges. We should express the incomplete cubes in terms of edges, because if
+A cube has 6 faces, 8 vertexes, and 12 edges. We should express the incomplete cubes in terms of edges, because if
 we do vertexes there are possible ways we can miss. For example consider the following cube:
 ```
   O---X
@@ -45,8 +45,8 @@ fully connect all the vertexes, or we can remove one of the edges between the 4 
 A bit hard to convey in ASCII but overall-- it's more thorough to map our edges, and have each incomplete
 cube be an array of edges (1-12). 
 
-Additionally, we know we'll have between 3 and 11 edges. 12 would be complete, and 2 or 1 edge can't make a 3-D
-shape.
+Additionally, we know we'll have between 3 and 11 edges. 12 would be complete, and 2 or 1 connected edges 
+can't make a 3-D shape.
 
 ### Edge numbering
 
@@ -128,6 +128,19 @@ That is, for each N the first set we generate will always be counted as 'unique'
 
 This one is interesting-- how do we check? Simple way-- we just rotate our current set every possible way and
 check to see if it matches with something already in our set. How many possible rotations are there?
+
+Think of a 6-sided die, and imagine you are looking directly at one of the faces. There are 6 numbers that could
+be on that face, and for each one of those there are 4 possible rotations. For example, if 6 is facing us:
+
+```
+o--4--o    o--5--o    o--3--o    o--2--o
+|     |    |     |    |     |    |     |
+5  6  2 -> 3  6  4 -> 2  6  5 -> 4  6  3
+|     |    |     |    |     |    |     |
+o--3--o    o--2--o    o--4--o    o--5--o    
+```
+
+So, 24 possible rotations. Now how do we actually generate those from an edge set?
 
 [TODO]
 
