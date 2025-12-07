@@ -65,7 +65,7 @@ O-----2-----O
 
 ### How many possible edge sets?
 
-Well, for a set of N edges there are 12 choose N possible combos. This gives us:
+Well, for a set of N edges there are 12 choose N (~12~C~N~) possible combos. This gives us:
 
 | N | # of sets |
 |--:|----------:|
@@ -142,8 +142,67 @@ o--3--o    o--2--o    o--4--o    o--5--o
 
 So, 24 possible rotations. Now how do we actually generate those from an edge set?
 
+If we consider face [2,5,6,10] our front face, rotating 90 degrees counter-clockwise (as in the above example)
+just requires changing the edge numbers according to this cycle:
+
+```
+10 -> 5 -> 2 -> 6 -> 10
+9 -> 1 -> 3 -> 11 -> 9
+12 -> 8 -> 4 -> 7 -> 12
+```
+
+This gives us our 4 final rotations. Then the 6 rotations to get each 'face' facing us:
+
+```
+Face 1:
+No rotation
+(Face [2,5,6,10])
+
+Face 2:
+Counter-clockwise 90 degrees about vertical axis
+(Face [1,5,8,9])
+5 -> 6 -> 7 -> 8 -> 5
+1 -> 2 -> 3 -> 4 -> 1
+9 -> 10 -> 11 -> 12 -> 9
+
+Face 3: 
+Counter-clockwise 180 degrees about vertical
+(Face [4,7,8,12])
+Apply above rotation twice
+
+Face 4:
+Clockwise 90 degrees about vertical
+(Face [3,6,7,11])
+Apply above rotation three times
+
+Face 5: Counter-clockwise 90 degrees about horizontal axis
+(Face [9,10,11,12])
+1 -> 8 -> 9 -> 5 -> 1
+2 -> 4 -> 12 -> 10 -> 2
+3 -> 7 -> 11 -> 6 -> 3
+
+Face 6: Clockwise 90 degrees about horizontal
+(Face [1,2,3,4])
+Apply above rotation three times
+
+```
+
+It's possible that encoding the cube differently would make these rotations a little more intuitive.
+Or at least give us an equation to generate them.
+
+Oh well! With only 3 rotations (one for each axis) we can get every rotation needed to express all 24 orientations.
+
+## Displaying the cubes
+
+The above section will get us a nice array of edge arrays, but a list of numbers 1-12 isn't exactly as 
+satisfying as the original art piece. It'd be nice to graph these!
+
+My 2 options are to do this in Python (easier, gets me some Python practice) *or* do this in C/C++ 
+(gets me some C GUI practice, more of a pain in the ass).
+
 [TODO]
 
 ## How to run the scripts
 
 Just execute the shell script 'buildNRun.sh'. This will compile and run the C++ code 'findCubes.cpp'.
+
