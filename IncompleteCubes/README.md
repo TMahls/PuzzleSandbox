@@ -1,5 +1,7 @@
 # Incomplete Open Cubes
 
+!(CubePlot.png)
+
 ## Background
 
 This was inspired by [this 3Blue1Brown video](https://www.youtube.com/watch?v=_BrFKp-U8GI).
@@ -200,7 +202,11 @@ satisfying as the original art piece. It'd be nice to graph these!
 My 2 options are to do this in Python (easier, gets me some Python practice) *or* do this in C/C++ 
 (gets me some C GUI practice, more of a pain in the ass).
 
-[TODO]
+I decided to use Python and matplotlib. It's a pretty simple script, but it does increase the overall 'footprint' 
+of this folder since you need to create a virtual env (~350Mb). I mean, you don't have to but I like the consistency.
+
+The C++ file creates a .csv of all the edge numbers. Then, we create a 3-D plot of all the cubes given a mapping of
+edge number to 2 3-D points. Each cube is a unit cube.
 
 ## How to run the scripts
 
