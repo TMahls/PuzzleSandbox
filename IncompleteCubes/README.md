@@ -1,6 +1,6 @@
 # Incomplete Open Cubes
 
-!(CubePlot.png)
+![Incomplete cube plots](CubePlot.png)
 
 ## Background
 
