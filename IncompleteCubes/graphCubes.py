@@ -1,39 +1,56 @@
+import csv
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Read input data file
+data = []
+with open('incompleteCubes.csv','r') as file:
+	csv_reader = csv.reader(file)
+	for row in csv_reader:
+		data.append(row)
+
+# Create figure
 ax = plt.figure().add_subplot(projection='3d')
 
-# Plot a sin curve using the x and y axes.
-x = np.linspace(0, 1, 100)
-y = np.sin(x * 2 * np.pi) / 2 + 0.5
-ax.plot(x, y, zs=0, zdir='z', label='curve in (x, y)')
+# Edge number to point
+pointMapping = np.array([[0,0,0],[0,1,0],
+			[0,0,0],[1,0,0],
+			[1,0,0],[1,1,0],
+			[0,1,0],[1,1,0],
+			[0,0,0],[0,0,1],
+			[1,0,0],[1,0,1],
+			[1,1,0],[1,1,1],
+			[0,1,0],[0,1,1],
+			[0,0,1],[0,1,1],
+			[0,0,1],[1,0,1],
+			[1,0,1],[1,1,1],
+			[0,1,1],[1,1,1]])
 
-# Plot scatterplot data (20 2D points per colour) on the x and z axes.
-colors = ('r', 'g', 'b', 'k')
+# Plot a cube
+origin = [0,0,0]
+lastLength = 0
+for row in data:
+	data = np.array(row)
+	data = data.astype(int)
 
-# Fixing random state for reproducibility
-np.random.seed(19680801)
+	if lastLength == 0:
+		lastLength = len(data)
+	elif len(data) != lastLength:
+		lastLength = len(data)
+		origin[0] = 0
+		origin[1] = origin[1] + 1.5
 
-x = np.random.sample(20 * len(colors))
-y = np.random.sample(20 * len(colors))
-c_list = []
-for c in colors:
-    c_list.extend([c] * 20)
-# By using zdir='y', the y value of these points is fixed to the zs value 0
-# and the (x, y) points are plotted on the x and z axes.
-ax.scatter(x, y, zs=0, zdir='y', c=c_list, label='points in (x, z)')
+	for i in data:
+		x = origin[0]+np.array([pointMapping[2*i-2][0], pointMapping[2*i-1][0]])
+		y = origin[1]+np.array([pointMapping[2*i-2][1], pointMapping[2*i-1][1]])
+		z = origin[2]+np.array([pointMapping[2*i-2][2], pointMapping[2*i-1][2]])
+		ax.plot(x,y,z,'-b')
+	origin[0] = origin[0] + 1.5
 
-# Make legend, set axes limits and labels
-ax.legend()
-ax.set_xlim(0, 1)
-ax.set_ylim(0, 1)
-ax.set_zlim(0, 1)
+# Set axes limits and labels
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
-
-# Customize the view angle so it's easier to see that the scatter points lie
-# on the plane y=0
-ax.view_init(elev=20., azim=-35, roll=0)
+plt.axis('equal')
 
 plt.show()

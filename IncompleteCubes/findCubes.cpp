@@ -106,7 +106,7 @@ int main() {
 		std::cout << "Time taken: " << timerScaled << " " << timerUnitScaled << std::endl;
 
 	// Write output to file
-	std::ofstream outputFile("incompeteCubes.csv");
+	std::ofstream outputFile("incompleteCubes.csv");
 	if (!outputFile.is_open()) {
 		std::cerr << "Error: Could not open file 'incompleteCubes.csv'" << std::endl;
 		return 1;
