@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ## This simple script basically just does 2 things:
 # 1 - Compile and run the C++ file to generate
 # the CSV file of edge data
