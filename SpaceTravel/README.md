@@ -52,16 +52,20 @@ don't blow past our target. If the distance is large, we will coast at our max s
 Another simplifying assumption-- our acceleration is a constant and we start and end at V = 0.
 So, for large distances our speed vs time plot would look like this:
 
+```
    -----------
   /           \
  /             \
 /               \
+```
 
 And for smaller distances where we don't reach V_max, it'll look like this:
 
+```
   /\
  /  \
 /    \
+```
 
 To get our total time we just need to find t_end such that the integral of this graph
 is D. We can calculate this from basic kinematic equations and geometry.
