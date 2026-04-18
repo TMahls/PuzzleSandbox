@@ -72,18 +72,19 @@ is D. We can calculate this from basic kinematic equations and geometry.
 
 ## Time Dilation
 
-The 0.1c, 1g spacecraft can make it to Pluto and back in around a month. That's great news, and 
+The 0.1c, 1.2g spacecraft can make it to Pluto and back in around a month. That's great news, and 
 means we could easily explore our solar system with ships like that! But the picture gets bleaker when
 looking at interstellar travel. Now we're talking 40+ years-- one-way. Not great. A ship that could house people
 for that long would have to be enormous, and now we're getting a bit into sci-fi.
 
 But then I remembered that due to Special Relativity, you get more time dilation the faster you go. How much
 time could we save our explorers for, say the 8 light-year round trip to and from Proxima Centauri? Turns out,
-not that much unless you're going really far and really fast. Due to the acceleration and deceleration phases,
-our average speed is not going to be that close to the speed of light, and our Lorentz factor isn't very high.
+not that much unless you're going really far and really fast. 
 
-Example: Even if our max speed was 0.999c, our 4.2 light-year trip would still take 2.73 years from the 
+Example: If our max speed was 0.999c, our 4.2 light-year trip would still take 1.29 years from the 
 perspective of our explorers. That's because it takes almost a year to accelerate from 0 to C at 1.2 G's!
+
+With a more reasonable 0.1c top speed, the explorers save only 2 months on the 42 year journey.
 
 Each one of the 3 travel scales I mentioned are orders of magnitude apart. 
 
