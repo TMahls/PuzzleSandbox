@@ -107,7 +107,7 @@ to turn back around.
 Side note, I used to be a big fan of nuclear-thermal engines (NERVA style), but
 nowadays I'm starting to think that electric/ion propulsion powered by nuclear reactors 
 might be the way to go. Highest Isp is what we need. Electric propulsion can already do burn times
-on the order of months. We just have to get the thrust up to we can accelerate a large craft at a 
+on the order of months. We just have to get the thrust up so we can accelerate a large craft at a 
 constant 1g.
 
 In general, I think assuming in the future that we will have ways of generating vast
