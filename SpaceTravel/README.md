@@ -81,7 +81,7 @@ But then I remembered that due to Special Relativity, you get more time dilation
 time could we save our explorers for, say the 8 light-year round trip to and from Proxima Centauri? Turns out,
 not that much unless you're going really far and really fast. 
 
-Example: If our max speed was 0.999c, our 4.2 light-year trip would still take 1.29 years from the 
+Example: If our max speed was 0.9999c, our 4.2 light-year trip would still take 1.29 years from the 
 perspective of our explorers. That's because it takes almost a year to accelerate from 0 to C at 1.2 G's!
 
 With a more reasonable 0.1c top speed, the explorers save only 2 months on the 42 year journey.
